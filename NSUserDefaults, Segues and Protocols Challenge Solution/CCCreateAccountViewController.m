@@ -52,7 +52,7 @@
     }
 }
 
-/* Call the delegate method didCancel which is implemented in hte CCCreateAccountViewController */
+/* Call the delegate method didCancel which is implemented in the CCCreateAccountViewController */
 - (IBAction)cancelButtonPressed:(UIButton *)sender
 {
     [self.delegate didCancel];
