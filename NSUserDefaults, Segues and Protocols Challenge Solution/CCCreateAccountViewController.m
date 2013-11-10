@@ -38,12 +38,11 @@
 /* First write an if statement to test if the username TextField's text property is not nil. Also test if the password TextField's text property is not nil and that the password TextField's text property is the same as the confirm password TextField's text property. If the conditionals evalute to true save the username and password TextField's text property to NSUserDefaults. Synchronize NSUserDefaults to save the objects. After call the delegate method didCreateAccount to dismiss the CreateAccountViewController. If the conditionals do not evaluate to true let the user know that issue with a UIAlertView. */
 - (IBAction)createAccountButtonPressed:(UIButton *)sender
 {
-    if ((self.usernameTextField.text != nil) && (self.passwordTextField.text !=nil) && [self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text])
-    {
+    if ((self.usernameTextField.text.length != 0) && (self.passwordTextField.text.length != 0) && [self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]) {
         [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:USER_NAME];
         [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:USER_PASSWORD];
         [[NSUserDefaults standardUserDefaults] synchronize];
-    
+        
         [self.delegate didCreateAccount];
     }
     else {
@@ -57,5 +56,8 @@
 {
     [self.delegate didCancel];
 }
+
+
+
 
 @end
